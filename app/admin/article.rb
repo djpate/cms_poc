@@ -29,7 +29,9 @@ ActiveAdmin.register Article do
       f.input :title
       f.input :description
       f.input :content
-      div id: "contentarea"
+      div id: "contentarea" do
+        raw f.resource.content
+      end
     end
     f.actions
   end

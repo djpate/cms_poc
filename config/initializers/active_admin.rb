@@ -197,6 +197,7 @@ ActiveAdmin.setup do |config|
   config.register_stylesheet 'admin/content_builder.css'
   config.register_javascript 'admin/jquery-ui.min.js'
   config.register_javascript 'admin/contentbuilder.js'
+  config.register_javascript 'admin/article_builder.js'
 
   # == CSV options
   #
