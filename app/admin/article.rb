@@ -1,6 +1,12 @@
 ActiveAdmin.register Article do
 
-  permit_params :title, :description, :content
+  controller do
+    def find_resource
+      scoped_collection.friendly.find(params[:id])
+    end
+  end
+
+  permit_params :title, :description, :content, :slug
 
   member_action :publish, method: :put do
     resource.publish!
@@ -27,6 +33,7 @@ ActiveAdmin.register Article do
   form do |f|
     f.inputs "Article Details" do
       f.input :title
+      f.input :slug
       f.input :description
       f.input :content
       div id: "contentarea", class: "base" do
@@ -35,4 +42,16 @@ ActiveAdmin.register Article do
     end
     f.actions
   end
+
+  index do
+    selectable_column
+    id_column
+    column :title
+    column :slug
+    column :published
+    column :created_at
+    column :updated_at
+    actions
+  end
+
 end

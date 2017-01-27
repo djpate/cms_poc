@@ -1,7 +1,9 @@
 class ArticlesController < ApplicationController
   
   def show
-    @article = Article.published.find(params[:id])
+    @article = Article.published
+                      .friendly
+                      .find(params[:id])
   end
 
 end
