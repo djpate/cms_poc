@@ -67,7 +67,7 @@ document.getElementsByTagName('head')[0].appendChild(sc);
                 [31, "Page Not Found"],
                 [19, "Separator"]
             ],
-            imageselect: '',
+            imageselect: '/images',
             fileselect: '',
             onImageSelectClick: function() {},
             onFileSelectClick: function() {},
