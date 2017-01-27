@@ -5,6 +5,9 @@ class Article < ApplicationRecord
   
   scope :published, ->{ where(published: true) }
 
+  validates :title, :slug, :description, presence: true
+  validates :slug, uniqueness: true
+
   def publish!
     self.published = true
     self.published_date = Time.now
@@ -15,6 +18,10 @@ class Article < ApplicationRecord
     self.published = false
     self.published_date = nil
     self.save!
+  end
+
+  def should_generate_new_friendly_id?
+    slug.blank?
   end
 
 end
