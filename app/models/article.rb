@@ -8,6 +8,8 @@ class Article < ApplicationRecord
   validates :title, :slug, :description, presence: true
   validates :slug, uniqueness: true
 
+  has_paper_trail
+
   def publish!
     self.published = true
     self.published_date = Time.now

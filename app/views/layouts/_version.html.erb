@@ -1,0 +1,30 @@
+<% if !resource.versions.empty? %>
+  <h3>Current Version: <%= resource.versions.length %></h3>
+
+  <b>Created At:</b>
+  <%= resource.versions.last.created_at%>
+  <br>
+  <b>Author</b>: <%= AdminUser.find(resource.versions.last.whodunnit).email %>
+  <br>
+  <% if resource.versions.length.to_i > 1 %>
+    <% if params[:version].to_i > 1 || !params[:version] %>
+      <%= link_to "Previous version", {:version => (params[:version] || resource.versions.length).to_i - 1}%>
+      <br>
+    <% end %>
+    <% if params[:version] %>
+      <h3>This is version #<%= "#{params[:version]}"%></h3>
+
+      <b>Modified at:</b>
+      <%= resource.versions[(params[:version].to_i - 1)].created_at %>
+      <br>
+      <b>Author</b>:
+      <%= AdminUser.find(resource.versions[(params[:version].to_i - 1)].whodunnit).email %>
+      <br>
+
+      <%= link_to "Go to current version"%>
+    <% end %>
+    <a href="<%=history_admin_article_path(@article)%>">View full history</a>
+  <% end %>
+<% else %>
+  <p>This item does not have any registered versions.</p>
+<% end %>

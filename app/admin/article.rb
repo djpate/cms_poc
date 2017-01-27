@@ -30,6 +30,14 @@ ActiveAdmin.register Article do
     link_to 'Unpublish', unpublish_admin_article_path(resource), :method => :put if resource.published?
   end
 
+  member_action :history do
+    @article = Article.friendly.find(params[:id])
+    @versions = PaperTrail::Version.where(item_type: 'Article', item_id: @article.id)
+    render "layouts/history"
+  end
+
+  sidebar :versions, :partial => "layouts/version", :only => :show
+
   form do |f|
     f.inputs "Article Details" do
       f.input :title
