@@ -1,0 +1,5 @@
+<% @widgets.each do |widget| %>
+  <div data-num="<%=widget.id%>" data-thumb="<%=widget.thumb.url(:small)%>" data-cat="<%=widget.widget_category.category_id%>">
+    <%= raw widget.html_content%>
+  </div>
+<%end %>

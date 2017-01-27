@@ -1,0 +1,2 @@
+class WidgetCategory < ApplicationRecord
+end

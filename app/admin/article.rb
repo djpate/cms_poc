@@ -36,7 +36,7 @@ ActiveAdmin.register Article do
       f.input :slug
       f.input :description
       f.input :content
-      div id: "contentarea", class: "base" do
+      div id: "contentarea", class: "base base_admin" do
         raw f.resource.content
       end
     end

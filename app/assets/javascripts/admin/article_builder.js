@@ -1,7 +1,7 @@
 $( document ).ready(function() {
   
   $("#contentarea").contentbuilder({
-    snippetFile: '/cms/snippets-bootstrap.html'
+    snippetFile: '/widgets'
   });
 
   $("#article_submit_action input").on('click', function(){

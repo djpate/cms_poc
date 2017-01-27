@@ -1,7 +1,31 @@
-@import "bootstrap";
-@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+.base_admin{
+  padding: 50px 0;
+  @mixin box-shadow($shadow...) {
+    @if $enable-shadows {
+      box-shadow: $shadow;
+    }
+  }
+
+  @mixin transition($transition...) {
+    @if $enable-transitions {
+      @if length($transition) == 0 {
+        transition: $transition-base;
+      } @else {
+        transition: $transition;
+      }
+    }
+  }
+
+  @import "bootstrap-grid";
+  @import "bootstrap/mixins/border-radius";
+  @import "bootstrap/mixins/image";
+  @import "bootstrap/images";
+  @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+}
+
 
 .base {
+
   background-color: black;
 
   .container{
