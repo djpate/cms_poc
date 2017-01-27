@@ -193,8 +193,12 @@ ActiveAdmin.setup do |config|
   #
   # To load a javascript file:
   #   config.register_javascript 'my_javascript.js'
-
+  config.clear_stylesheets!
+  config.clear_javascripts!
+  config.register_stylesheet 'admin/active_admin.css'
   config.register_stylesheet 'admin/content_builder.css'
+  config.register_stylesheet 'common.css'
+  config.register_javascript 'admin/active_admin.js'
   config.register_javascript 'admin/jquery-ui.min.js'
   config.register_javascript 'admin/contentbuilder.js'
   config.register_javascript 'admin/article_builder.js'
